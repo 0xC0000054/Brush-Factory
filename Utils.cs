@@ -364,8 +364,8 @@ namespace BrushFactory
                 {
                     int pos = y * bmpData.Stride + x * 4;
 
-                    //Sets the alpha channel based on its intensity.
-                    row[pos + 3] = (byte)((row[pos + 2] + row[pos + 1] + row[pos]) / 3);
+                    //Sets the alpha channel based on its inverted intensity, preserving black.
+                    row[pos + 3] = (byte)(255 - ((row[pos + 2] + row[pos + 1] + row[pos]) / 3));
                 }
             }
 
